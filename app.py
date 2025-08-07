@@ -11,25 +11,28 @@ html_code = """
   <title>Tic-Tac-Toe Game</title>
   <style>
     body {
-      margin: 0;
-      height: 100vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       background-color: #efefef;
-      font-family: sans-serif;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      text-align: center;
     }
 
     h1 {
       color: black;
       font-size: 40px;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
     }
 
     #turn {
-      font-size: 24px;
+      font-size: 30px;
       color: #333;
       margin-bottom: 20px;
     }
@@ -42,15 +45,15 @@ html_code = """
       padding: 20px;
       border-radius: 15px;
       border: 5px solid black;
-      width: 700px;
+      width: 506px;
       height: 506px;
-      box-sizing: border-box;
+      margin: auto;
       position: relative;
     }
 
     .cell {
-      width: 150px;
-      height: 150px;
+      width: 120px;
+      height: 120px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -95,7 +98,6 @@ html_code = """
       text-align: center;
       width: 350px;
       height: 300px;
-      z-index: 20;
     }
 
     .close-btn {
@@ -137,16 +139,17 @@ html_code = """
   </style>
 </head>
 <body>
+<div class="container">
+  <h1>Tic-Tac-Toe Game</h1>
+  <p id="turn">Player X's turn</p>
+  <div id="board" class="board"></div>
+  <div id="win-line"></div>
 
-<h1>Tic-Tac-Toe Game</h1>
-<p id="turn">Player X's turn</p>
-<div id="board" class="board"></div>
-<div id="win-line"></div>
-
-<div id="winner-message" class="winner-message">
-  <span id="close-btn" class="close-btn" onclick="closeWinnerMessage()">×</span>
-  <div id="winner-text"></div>
-  <button class="play-again-btn" onclick="resetGame()">Play Again</button>
+  <div id="winner-message" class="winner-message">
+    <span id="close-btn" class="close-btn" onclick="closeWinnerMessage()">×</span>
+    <div id="winner-text"></div>
+    <button class="play-again-btn" onclick="resetGame()">Play Again</button>
+  </div>
 </div>
 
 <script>
@@ -213,7 +216,7 @@ function checkWinner() {
 }
 
 function drawWinLine(r1, c1, r2, c2) {
-  const cellSize = 150;
+  const cellSize = 125;
   const boardRect = document.getElementById('board').getBoundingClientRect();
   const x1 = c1 * cellSize + cellSize / 2;
   const y1 = r1 * cellSize + cellSize / 2;
@@ -224,8 +227,8 @@ function drawWinLine(r1, c1, r2, c2) {
   const length = Math.sqrt(dx * dx + dy * dy);
   const angle = Math.atan2(dy, dx) * 180 / Math.PI;
   const line = document.getElementById('win-line');
-  line.style.top = `${y1}px`;
-  line.style.left = `${x1}px`;
+  line.style.top = `${y1 + boardRect.top}px`;
+  line.style.left = `${x1 + boardRect.left}px`;
   line.style.width = `${length}px`;
   line.style.transform = `rotate(${angle}deg) scaleX(1)`;
 }
@@ -268,6 +271,5 @@ printBoard();
 </html>
 """
 
-# Set height large enough to show full board and winner message
-st.components.v1.html(html_code, height=900)
-
+# Set large height to allow full board visibility
+st.components.v1.html(html_code, height=1100)
