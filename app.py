@@ -10,19 +10,21 @@ html_code = """
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tic-Tac-Toe Game</title>
   <style>
-    body {
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: #efefef;
-      height: 100vh;
-      margin: 0;
-      padding: 0;
       font-family: Arial, sans-serif;
     }
 
     .container {
       text-align: center;
+      width: 600px; /* Adjust width for better view */
+      max-width: 100%;
     }
 
     h1 {
@@ -45,8 +47,9 @@ html_code = """
       padding: 20px;
       border-radius: 15px;
       border: 5px solid black;
-      width: 506px;
-      height: 506px;
+      width: 100%; /* Adjust width for responsiveness */
+      height: 450px; /* Set fixed height for better visibility */
+      max-width: 100%;
       margin: auto;
       position: relative;
     }
@@ -272,4 +275,4 @@ printBoard();
 """
 
 # Set large height to allow full board visibility
-st.components.v1.html(html_code, height=1100)
+st.components.v1.html(html_code, height=800)
