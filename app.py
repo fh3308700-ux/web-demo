@@ -13,7 +13,7 @@ st.markdown("""
         text-align: center;
         font-size: 3em;
         font-weight: bold;
-        color: white;
+        color: #ff6347;  /* Changed title color to a vibrant color */
         text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
     }
     .turn-text {
@@ -31,11 +31,21 @@ st.markdown("""
         box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     }
     .button-cell {
-        height: 100px !important;
-        width: 100px !important;
-        font-size: 36px !important;
+        height: 120px !important;  /* Increased cell height */
+        width: 120px !important;   /* Increased cell width */
+        font-size: 48px !important;  /* Increased font size */
         border-radius: 12px !important;
         font-weight: bold !important;
+        background-color: #ffeb3b;  /* Changed cell color to bright yellow */
+        border: 3px solid #fbc02d;  /* Slightly darker yellow for the border */
+        color: #3d3d3d;
+        margin: 5px;
+        transition: all 0.3s ease;
+    }
+    .button-cell:hover {
+        background-color: #fbc02d;  /* Darker yellow when hovered */
+        color: white;
+        transform: scale(1.1);  /* Zoom effect on hover */
     }
     .restart-button {
         font-size: 20px;
@@ -113,4 +123,3 @@ st.markdown('</div>', unsafe_allow_html=True)
 # Restart button
 st.markdown('<br>', unsafe_allow_html=True)
 st.button("🔁 Restart Game", on_click=reset_game)
-
