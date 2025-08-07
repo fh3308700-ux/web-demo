@@ -42,7 +42,7 @@ html_code = """
       padding: 20px;
       border-radius: 15px;
       border: 5px solid black;
-      width: 506px;
+      width: 700px;
       height: 506px;
       box-sizing: border-box;
       position: relative;
@@ -270,3 +270,4 @@ printBoard();
 
 # Set height large enough to show full board and winner message
 st.components.v1.html(html_code, height=900)
+
