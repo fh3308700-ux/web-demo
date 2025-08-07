@@ -43,8 +43,7 @@
       border-radius: 15px;
       border: 5px solid black;
       position: relative;
-      max-width: 400px; /* Fixed width */
-      width: 100%; /* Make it responsive */
+      width: 400px; /* Fixed width */
       height: 450px; /* Fixed height */
     }
 
