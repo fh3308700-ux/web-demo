@@ -1,11 +1,10 @@
-
 import streamlit as st
 
 # Page config
 st.set_page_config(page_title="Tic-Tac-Toe", layout="centered")
 
 # Custom CSS styling
-st.markdown("""
+st.markdown('''
     <style>
     body {
         background: linear-gradient(to right, #2c3e50, #4ca1af);  /* Darker background gradient */
@@ -27,20 +26,20 @@ st.markdown("""
         background-color: #3e4e6a;  /* Darker game container background */
         border-radius: 20px;
         padding: 20px;
-        width: 380px;  /* Decreased width for a more compact container */
+        width: 480px;  /* Increased width */
         margin: auto;
         box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     }
     .button-cell {
-        height: 120px !important;  /* Increased cell height */
-        width: 120px !important;   /* Increased cell width */
-        font-size: 48px !important;  /* Increased font size */
+        height: 160px !important;  /* Increased cell height */
+        width: 160px !important;   /* Increased cell width */
+        font-size: 80px !important;  /* Increased font size */
         border-radius: 12px !important;
         font-weight: bold !important;
         background-color: #3498db;  /* Changed cell color to a cool blue */
         border: 2px solid #2980b9;  /* Darker blue border */
         color: white;
-        margin: 2px;  /* Decreased the gap between cells */
+        margin: 5px;  /* Decreased the gap between cells */
         transition: all 0.3s ease;
     }
     .button-cell:hover {
@@ -58,7 +57,7 @@ st.markdown("""
         border: none;
     }
     </style>
-""", unsafe_allow_html=True)
+''', unsafe_allow_html=True)
 
 # Game title
 st.markdown('<div class="title">🎮 Tic-Tac-Toe Game</div>', unsafe_allow_html=True)
@@ -124,4 +123,3 @@ st.markdown('</div>', unsafe_allow_html=True)
 # Restart button
 st.markdown('<br>', unsafe_allow_html=True)
 st.button("🔁 Restart Game", on_click=reset_game)
-
