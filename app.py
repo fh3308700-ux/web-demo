@@ -11,16 +11,21 @@ html_code = """
   <title>Tic-Tac-Toe Game</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background: white;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
-    }
+           
+      display: grid;
+      grid-template-columns: repeat(3, 150px);
+      grid-gap: 8px;
+      background-color: #efefef;
+      padding: 20px;
+      border-radius: 15px;
+      border: 5px solid black;
+      position: relative;
+      width: 100%;
+      height: 500px;
+     box-sizing: border-box;
+}
+
+    
 
     h1 {
       color: black;
@@ -269,3 +274,4 @@ printBoard();
 """
 
 st.components.v1.html(html_code, height=800)
+
