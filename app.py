@@ -1,3 +1,10 @@
+import streamlit as st
+
+# Page config
+st.set_page_config(page_title="Tic-Tac-Toe", layout="centered")
+
+# Custom CSS styling
+
 st.markdown("""
     <style>
     body {
@@ -52,3 +59,9 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+
+
+st.markdown('<br>', unsafe_allow_html=True)
+st.button("🔁 Restart Game", on_click=reset_game)
+
+
