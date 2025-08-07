@@ -40,19 +40,20 @@ html_code = """
       margin-bottom: 20px;
     }
 
-    .board {
-      display: grid;
-      grid-template-columns: repeat(3, 120px);
-      grid-gap: 5px;
-      justify-content: center;
-      align-items: center;
-      margin-top: 20px;
-      background-color: #ef9c9c;
-      padding: 20px;
-      border-radius: 15px;
-      border: 5px solid black;
-      position: relative;
-    }
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
+  grid-gap: 8px;
+  background-color: #efefef;
+  padding: 20px;
+  border-radius: 15px;
+  border: 5px solid black;
+  position: relative;
+  width: 506px;
+  height: 506px;
+  box-sizing: border-box;
+}
+
 
     .cell {
       width: 120px;
@@ -274,5 +275,6 @@ printBoard();
 """
 
 st.components.v1.html(html_code, height=800)
+
 
 
