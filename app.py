@@ -43,7 +43,7 @@ html_code = """
       justify-content: center;
       align-items: center;
       margin-top: 20px;
-      background-color: #ef9c9c;
+
       padding: 20px;
       border-radius: 15px;
       border: 5px solid black;
@@ -277,5 +277,6 @@ printBoard();
 
 # Set large height to allow full board visibility
 st.components.v1.html(html_code, height=800)
+
 
 
