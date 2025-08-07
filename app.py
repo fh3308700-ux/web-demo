@@ -123,3 +123,4 @@ st.markdown('</div>', unsafe_allow_html=True)
 # Restart button
 st.markdown('<br>', unsafe_allow_html=True)
 st.button("🔁 Restart Game", on_click=reset_game)
+
