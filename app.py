@@ -13,7 +13,7 @@ st.markdown("""
         text-align: center;
         font-size: 3em;
         font-weight: bold;
-        color: white;
+        color: #ff6347;
         text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
     }
     .turn-text {
@@ -123,3 +123,4 @@ st.markdown('</div>', unsafe_allow_html=True)
 # Restart button
 st.markdown('<br>', unsafe_allow_html=True)
 st.button("🔁 Restart Game", on_click=reset_game)
+
