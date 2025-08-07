@@ -43,11 +43,11 @@ html_code = """
       justify-content: center;
       align-items: center;
       margin-top: 20px;
-
+      background-color: #ef9c9c;
       padding: 20px;
       border-radius: 15px;
       border: 5px solid black;
-      position: relative;
+      position: absolute;
       width: 700px;
       height: 750px;
     }
