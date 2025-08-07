@@ -11,7 +11,30 @@ html_code = """
   <title>Tic-Tac-Toe Game</title>
   <style>
     body {
-           
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #efefef;
+      font-family: sans-serif;
+    }
+
+    h1 {
+      color: black;
+      font-size: 40px;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+
+    #turn {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .board {
       display: grid;
       grid-template-columns: repeat(3, 150px);
       grid-gap: 8px;
@@ -19,45 +42,15 @@ html_code = """
       padding: 20px;
       border-radius: 15px;
       border: 5px solid black;
+      width: 506px;
+      height: 506px;
+      box-sizing: border-box;
       position: relative;
-      width:  500px;
-      height: 500px;
-     box-sizing: border-box;
-}
-
-    
-
-    h1 {
-      color: black;
-      font-size: 40px;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     }
-
-    #turn {
-      font-size: 30px;
-      color: #333;
-      margin-bottom: 20px;
-    }
-
-.board {
-  display: grid;
-  grid-template-columns: repeat(3, 150px);
-  grid-gap: 8px;
-  background-color: #efefef;
-  padding: 20px;
-  border-radius: 15px;
-  border: 5px solid black;
-  position: relative;
-  width: 506px;
-  height: 506px;
-  box-sizing: border-box;
-}
-
 
     .cell {
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -102,6 +95,7 @@ html_code = """
       text-align: center;
       width: 350px;
       height: 300px;
+      z-index: 20;
     }
 
     .close-btn {
@@ -219,7 +213,7 @@ function checkWinner() {
 }
 
 function drawWinLine(r1, c1, r2, c2) {
-  const cellSize = 125;
+  const cellSize = 150;
   const boardRect = document.getElementById('board').getBoundingClientRect();
   const x1 = c1 * cellSize + cellSize / 2;
   const y1 = r1 * cellSize + cellSize / 2;
@@ -230,8 +224,8 @@ function drawWinLine(r1, c1, r2, c2) {
   const length = Math.sqrt(dx * dx + dy * dy);
   const angle = Math.atan2(dy, dx) * 180 / Math.PI;
   const line = document.getElementById('win-line');
-  line.style.top = `${y1 + boardRect.top}px`;
-  line.style.left = `${x1 + boardRect.left}px`;
+  line.style.top = `${y1}px`;
+  line.style.left = `${x1}px`;
   line.style.width = `${length}px`;
   line.style.transform = `rotate(${angle}deg) scaleX(1)`;
 }
@@ -274,7 +268,5 @@ printBoard();
 </html>
 """
 
-st.components.v1.html(html_code, height=800)
-
-
-
+# Set height large enough to show full board and winner message
+st.components.v1.html(html_code, height=900)
