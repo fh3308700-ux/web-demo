@@ -7,7 +7,7 @@ st.set_page_config(page_title="Tic-Tac-Toe", layout="centered")
 st.markdown("""
     <style>
     body {
-        background: linear-gradient(to right, #1b973a, #4bd09b);
+        background: linear-gradient(to right, #28a745 , #4bd09b);
     }
     .title {
         text-align: center;
@@ -42,7 +42,7 @@ st.markdown("""
         padding: 10px 30px;
         border-radius: 10px;
         margin-top: 30px;
-        background-color: #4CAF50;
+        background-color: #28a745 ;
         color: white;
         border: none;
     }
@@ -113,4 +113,5 @@ st.markdown('</div>', unsafe_allow_html=True)
 # Restart button
 st.markdown('<br>', unsafe_allow_html=True)
 st.button("🔁 Restart Game", on_click=reset_game)
+
 
