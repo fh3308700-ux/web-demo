@@ -13,7 +13,7 @@ st.markdown("""
         text-align: center;
         font-size: 3em;
         font-weight: bold;
-        color: #ff6347;  /* Title color */
+        color: #ff6347;
         text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
     }
     .turn-text {
@@ -36,14 +36,14 @@ st.markdown("""
         font-size: 36px !important;
         border-radius: 12px !important;
         font-weight: bold !important;
-        background-color: #ffeb3b;  /* Light yellow color */
-        border: 2px solid #fbc02d;  /* Slightly darker yellow for the border */
-        color: #3d3d3d;
+        background-color: balck  /* Light color for the background */
+        border: 3px solid #ff9966;  /* Add border with a light color */
+        color:#ffeb3b;
         margin: 5px;
         transition: all 0.3s ease;
     }
     .button-cell:hover {
-        background-color: #fbc02d;  /* Darker yellow when hovered */
+        background-color: #ff9966;  /* Darker hover effect */
         color: white;
         transform: scale(1.1);  /* Zoom effect on hover */
     }
@@ -68,7 +68,6 @@ if "board" not in st.session_state:
     st.session_state.current_player = "X"
     st.session_state.game_over = False
     st.session_state.winner = None
-    st.session_state.lock = False  # Lock to prevent multiple taps
 
 def check_winner(board):
     for i in range(3):
@@ -90,7 +89,6 @@ def reset_game():
     st.session_state.current_player = "X"
     st.session_state.game_over = False
     st.session_state.winner = None
-    st.session_state.lock = False  # Reset lock
 
 # Game status
 if st.session_state.winner:
@@ -102,7 +100,6 @@ else:
 
 # Game board
 st.markdown('<div class="game-container">', unsafe_allow_html=True)
-
 for i in range(3):
     cols = st.columns(3)
     for j in range(3):
@@ -110,8 +107,7 @@ for i in range(3):
         cell_display = cell_value if cell_value != "_" else " "
         button_label = f"{cell_display}"
 
-        # Use the session state to lock the click after it's made
-        if not st.session_state.lock and cols[j].button(button_label, key=f"{i}-{j}", help="Click to play", type="secondary", use_container_width=True):
+        if cols[j].button(button_label, key=f"{i}-{j}", help="Click to play", type="secondary", use_container_width=True):
             if not st.session_state.game_over and st.session_state.board[i][j] == "_":
                 st.session_state.board[i][j] = st.session_state.current_player
                 winner = check_winner(st.session_state.board)
@@ -122,14 +118,9 @@ for i in range(3):
                     st.session_state.game_over = True
                 else:
                     st.session_state.current_player = "O" if st.session_state.current_player == "X" else "X"
-                st.session_state.lock = True  # Lock the game to prevent multiple clicks
-
-    # Unlock the game when all players have made a move
-    if st.session_state.game_over:
-        st.session_state.lock = False
-
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Restart button
 st.markdown('<br>', unsafe_allow_html=True)
 st.button("🔁 Restart Game", on_click=reset_game)
+
