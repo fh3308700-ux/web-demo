@@ -20,7 +20,7 @@ html_code = """
       border-radius: 15px;
       border: 5px solid black;
       position: relative;
-      width: 100%;
+      width:  500px;
       height: 500px;
      box-sizing: border-box;
 }
@@ -274,4 +274,5 @@ printBoard();
 """
 
 st.components.v1.html(html_code, height=800)
+
 
