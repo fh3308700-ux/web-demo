@@ -1,37 +1,22 @@
-const multer = require('multer');
-const path = require('path');
+import streamlit as st
+import pandas as pd
 
-// Set up multer to store the file temporarily in /tmp directory
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, '/tmp/uploads');  // Store temporarily in /tmp/uploads directory
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname));  // Add timestamp to file name
-  },
-});
+# Sample data: Country information
+data = {
+    "Country": ["USA", "Canada", "Germany", "Australia", "India"],
+    "Capital": ["Washington, D.C.", "Ottawa", "Berlin", "Canberra", "New Delhi"],
+    "Population": [331002651, 37742154, 83783942, 25499884, 1380004385],
+}
 
-const upload = multer({ storage: storage }).single('file');
+# Create a DataFrame
+df = pd.DataFrame(data)
 
-module.exports = (req, res) => {
-  upload(req, res, (err) => {
-    if (err) {
-      return res.status(500).json({ error: 'Error uploading file' });
-    }
+# Streamlit app content
+st.title("Country Information App")
+st.write("This is a simple Streamlit app displaying information about different countries.")
 
-    const file = req.file;
-    if (!file) {
-      return res.status(400).json({ error: 'No file uploaded' });
-    }
+# Display the DataFrame
+st.write(df)
 
-    // Temporary file path where the file is saved
-    const filePath = `/tmp/uploads/${file.filename}`;
-    console.log('File uploaded to:', filePath);
-
-    // Respond with the file's temporary path or success message
-    return res.status(200).json({
-      message: 'File uploaded successfully',
-      filePath: filePath,
-    });
-  });
-};
+# Add a description or additional functionality
+st.write("You can add more functionality here, such as interactive filters or graphs.")
