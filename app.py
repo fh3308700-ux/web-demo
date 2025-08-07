@@ -36,9 +36,9 @@ st.markdown("""
         font-size: 36px !important;
         border-radius: 12px !important;
         font-weight: bold !important;
-        background-color: #ffdd99;  /* Light color for the background */
+        background-color: balck  /* Light color for the background */
         border: 3px solid #ff9966;  /* Add border with a light color */
-        color: #3d3d3d;
+        color:#ffeb3b;
         margin: 5px;
         transition: all 0.3s ease;
     }
@@ -123,4 +123,5 @@ st.markdown('</div>', unsafe_allow_html=True)
 # Restart button
 st.markdown('<br>', unsafe_allow_html=True)
 st.button("🔁 Restart Game", on_click=reset_game)
+
 
