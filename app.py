@@ -10,48 +10,46 @@ html_code = """
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tic-Tac-Toe Game</title>
   <style>
-    body, html {
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #1b973a, #4bd09b);
       margin: 0;
       padding: 0;
-      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #efefef;
-      font-family: Arial, sans-serif;
-    }
-
-    .container {
-      text-align: center;
-      width: 600px; /* Adjust width for better view */
-      max-width: 100%;
+      height: 100vh;
+      flex-direction: column;
     }
 
     h1 {
-      color: black;
+      color: white;
       font-size: 40px;
       margin-bottom: 20px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
     }
 
     #turn {
-      font-size: 30px;
-      color: #333;
+      font-size: 40px;
+      color: rgb(246, 241, 241);
       margin-bottom: 20px;
+      text-shadow: 4px 4px 10px rgba(0,0,0,0.3);
     }
 
     .board {
       display: grid;
-      grid-template-columns: repeat(3, 150px);
-      grid-gap: 8px;
-      background-color: #efefef;
+      grid-template-columns: repeat(3, 120px);
+      grid-gap: 5px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      background-color: #ef9c9c;
       padding: 20px;
       border-radius: 15px;
       border: 5px solid black;
-      width: 100%; /* Adjust width for responsiveness */
-      height: 450px; /* Set fixed height for better visibility */
-      max-width: 100%;
-      margin: auto;
       position: relative;
+      width: 400px;
+      height: 450px;
     }
 
     .cell {
@@ -142,17 +140,16 @@ html_code = """
   </style>
 </head>
 <body>
-<div class="container">
-  <h1>Tic-Tac-Toe Game</h1>
-  <p id="turn">Player X's turn</p>
-  <div id="board" class="board"></div>
-  <div id="win-line"></div>
 
-  <div id="winner-message" class="winner-message">
-    <span id="close-btn" class="close-btn" onclick="closeWinnerMessage()">×</span>
-    <div id="winner-text"></div>
-    <button class="play-again-btn" onclick="resetGame()">Play Again</button>
-  </div>
+<h1>Tic-Tac-Toe Game</h1>
+<p id="turn">Player X's turn</p>
+<div id="board" class="board"></div>
+<div id="win-line"></div>
+
+<div id="winner-message" class="winner-message">
+  <span id="close-btn" class="close-btn" onclick="closeWinnerMessage()">×</span>
+  <div id="winner-text"></div>
+  <button class="play-again-btn" onclick="resetGame()">Play Again</button>
 </div>
 
 <script>
@@ -245,7 +242,7 @@ function showWinner(message) {
   document.getElementById('winner-message').style.display = 'block';
   resetTimeout = setTimeout(() => {
     resetGame();
-  }, 3000); // auto-reset after 3 seconds
+  }, 1000); // auto-reset after 10 seconds
 }
 
 function closeWinnerMessage() {
@@ -270,9 +267,14 @@ function resetGame() {
 
 printBoard();
 </script>
+
 </body>
 </html>
+
+
+
 """
 
 # Set large height to allow full board visibility
 st.components.v1.html(html_code, height=800)
+
