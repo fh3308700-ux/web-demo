@@ -48,8 +48,8 @@ html_code = """
       border-radius: 15px;
       border: 5px solid black;
       position: relative;
-      width: 400px;
-      height: 450px;
+      width: 700px;
+      height: 750px;
     }
 
     .cell {
@@ -277,4 +277,5 @@ printBoard();
 
 # Set large height to allow full board visibility
 st.components.v1.html(html_code, height=800)
+
 
