@@ -269,7 +269,7 @@ printBoard();
 
 </body>
 </html>
-"""
+
 
 # Streamlit app content
 st.title("Tic-Tac-Toe Game")
@@ -277,3 +277,4 @@ st.write("This is a simple Tic-Tac-Toe game implemented in HTML and JavaScript."
 
 # Display HTML content
 html(game_html, height=800)
+
