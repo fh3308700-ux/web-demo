@@ -36,15 +36,16 @@ st.markdown("""
         font-size: 36px !important;
         border-radius: 12px !important;
         font-weight: bold !important;
-        background-color: #f8c8c8;
-        border: 2px solid #333;
-        color: #444;
-        margin: 2px;
-        transition: all 0.3s;
+        background-color: #ffdd99;  /* Light color for the background */
+        border: 3px solid #ff9966;  /* Add border with a light color */
+        color: #3d3d3d;
+        margin: 5px;
+        transition: all 0.3s ease;
     }
     .button-cell:hover {
-        background-color: #eebc96;
-        transform: scale(1.1);
+        background-color: #ff9966;  /* Darker hover effect */
+        color: white;
+        transform: scale(1.1);  /* Zoom effect on hover */
     }
     .restart-button {
         font-size: 20px;
@@ -106,7 +107,7 @@ for i in range(3):
         cell_display = cell_value if cell_value != "_" else " "
         button_label = f"{cell_display}"
 
-        if cols[j].button(button_label, key=f"{i}-{j}", help="Click to play", type="secondary"):
+        if cols[j].button(button_label, key=f"{i}-{j}", help="Click to play", type="secondary", use_container_width=True):
             if not st.session_state.game_over and st.session_state.board[i][j] == "_":
                 st.session_state.board[i][j] = st.session_state.current_player
                 winner = check_winner(st.session_state.board)
