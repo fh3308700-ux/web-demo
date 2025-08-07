@@ -46,7 +46,8 @@ html_code = """
       padding: 20px;
       border-radius: 15px;
       border: 5px solid black;
-      position: relative;
+      position: center;
+      width : 100%;
     }
 
     .cell {
@@ -269,3 +270,4 @@ printBoard();
 """
 
 st.components.v1.html(html_code, height=800)
+
