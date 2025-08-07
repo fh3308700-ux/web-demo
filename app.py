@@ -2,8 +2,7 @@ import streamlit as st
 import os
 from streamlit.components.v1 import html
 
-# HTML and JavaScript for the Tic-Tac-Toe Game
-game_html = """
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -277,4 +276,5 @@ st.write("This is a simple Tic-Tac-Toe game implemented in HTML and JavaScript."
 
 # Display HTML content
 html(game_html, height=800)
+
 
