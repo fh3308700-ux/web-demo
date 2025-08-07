@@ -7,11 +7,11 @@ st.set_page_config(page_title="Tic-Tac-Toe", layout="centered")
 st.markdown("""
     <style>
     body {
-        background: linear-gradient(to right, #1b973a, #4bd09b);
+        background: linear-gradient(to right, #2c3e50, #4ca1af);  /* Darker background gradient */
     }
     .title {
         text-align: center;
-        font-size: 3em;
+        font-size: 3.5em;  /* Increased font size */
         font-weight: bold;
         color: #ff6347;  /* Changed title color to a vibrant color */
         text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
@@ -23,28 +23,28 @@ st.markdown("""
         margin-bottom: 20px;
     }
     .game-container {
-        background-color: #ef9c9c;
+        background-color: #3e4e6a;  /* Darker game container background */
         border-radius: 20px;
-        padding: 30px;
-        width: 420px;
+        padding: 20px;
+        width: 380px;  /* Decreased width for a more compact container */
         margin: auto;
         box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     }
     .button-cell {
-        height: 150px !important;  /* Increased cell height */
-        width: 150px !important;   /* Increased cell width */
+        height: 120px !important;  /* Increased cell height */
+        width: 120px !important;   /* Increased cell width */
         font-size: 48px !important;  /* Increased font size */
         border-radius: 12px !important;
         font-weight: bold !important;
-        background-color: #483D8B;  /* Changed cell color to bright yellow */
-        border: 3px solid  #4B0082;  /* Slightly darker yellow for the border */
-        color: #003366;
-        margin: 5px;
+        background-color: #3498db;  /* Changed cell color to a cool blue */
+        border: 2px solid #2980b9;  /* Darker blue border */
+        color: white;
+        margin: 2px;  /* Decreased the gap between cells */
         transition: all 0.3s ease;
     }
     .button-cell:hover {
-        background-color: #fbc02d;  /* Darker yellow when hovered */
-        color: skyblue;
+        background-color: #2980b9;  /* Darker blue when hovered */
+        color: #ecf0f1;  /* Lighter color on hover */
         transform: scale(1.1);  /* Zoom effect on hover */
     }
     .restart-button {
@@ -52,8 +52,8 @@ st.markdown("""
         padding: 10px 30px;
         border-radius: 10px;
         margin-top: 30px;
-        background-color: #4CAF50;
-        color: yellow;
+        background-color: #27ae60;  /* Dark green restart button */
+        color: white;
         border: none;
     }
     </style>
@@ -123,4 +123,3 @@ st.markdown('</div>', unsafe_allow_html=True)
 # Restart button
 st.markdown('<br>', unsafe_allow_html=True)
 st.button("🔁 Restart Game", on_click=reset_game)
-
