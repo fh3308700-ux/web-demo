@@ -1,7 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="Tic-Tac-Toe", layout="centered")
-
+# HTML and CSS code
 html_code = """
 <!DOCTYPE html>
 <html lang="en">
@@ -15,48 +14,45 @@ html_code = """
       background: white;
       margin: 0;
       padding: 0;
+      width: 100vw;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
       flex-direction: column;
+      text-align: center;
     }
 
     h1 {
-      color: black;
+      color: #333;
       font-size: 40px;
       margin-bottom: 20px;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     }
 
     #turn {
-      font-size: 30px;
-      color: #333;
+      font-size: 28px;
+      color: #444;
       margin-bottom: 20px;
     }
 
     .board {
       display: grid;
-      grid-template-columns: repeat(3, 120px);
-      grid-gap: 5px;
-      justify-content: center;
-      align-items: center;
-      margin-top: 20px;
-      background-color: #ef9c9c;
+      grid-template-columns: repeat(3, 150px);
+      grid-gap: 8px;
+      background-color: #efefef;
       padding: 20px;
       border-radius: 15px;
       border: 5px solid black;
-      position: center;
-      width : 100%;
+      position: relative;
     }
 
     .cell {
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 40px;
+      font-size: 50px;
       font-weight: bold;
       color: white;
       background: #1c1515;
@@ -72,7 +68,7 @@ html_code = """
     }
 
     .cell.X {
-      background: linear-gradient(45deg, hsl(36, 100%, 50%), #ff5722);
+      background: linear-gradient(45deg, #ff9800, #ff5722);
     }
 
     .cell.O {
@@ -84,10 +80,10 @@ html_code = """
     }
 
     .winner-message {
-      font-size: 40px;
+      font-size: 30px;
       color: white;
       background-color: rgba(0, 0, 0, 0.8);
-      padding: 40px;
+      padding: 30px;
       border-radius: 15px;
       position: absolute;
       top: 50%;
@@ -96,14 +92,14 @@ html_code = """
       display: none;
       text-align: center;
       width: 350px;
-      height: 300px;
+      height: 250px;
     }
 
     .close-btn {
       position: absolute;
       top: 5px;
       right: 10px;
-      color: rgb(242, 239, 245);
+      color: white;
       font-size: 25px;
       cursor: pointer;
     }
@@ -122,7 +118,7 @@ html_code = """
 
     .play-again-btn {
       margin-top: 30px;
-      font-size: 24px;
+      font-size: 20px;
       padding: 10px 20px;
       border: none;
       border-radius: 8px;
@@ -214,7 +210,7 @@ function checkWinner() {
 }
 
 function drawWinLine(r1, c1, r2, c2) {
-  const cellSize = 125;
+  const cellSize = 158;  // Approx cell size + padding
   const boardRect = document.getElementById('board').getBoundingClientRect();
   const x1 = c1 * cellSize + cellSize / 2;
   const y1 = r1 * cellSize + cellSize / 2;
@@ -240,7 +236,7 @@ function showWinner(message) {
   document.getElementById('winner-message').style.display = 'block';
   resetTimeout = setTimeout(() => {
     resetGame();
-  }, 3000); // auto-reset after 3 seconds
+  }, 3000); // Auto-reset after 3 seconds
 }
 
 function closeWinnerMessage() {
@@ -265,9 +261,11 @@ function resetGame() {
 
 printBoard();
 </script>
+
 </body>
 </html>
 """
 
-st.components.v1.html(html_code, height=800)
-
+# Show in Streamlit
+st.set_page_config(layout="wide")
+st.components.v1.html(html_code, height=1000, scrolling=False)
